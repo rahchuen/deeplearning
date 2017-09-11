@@ -59,7 +59,4 @@ def fit(trainingdata,learningrate,minmse):
         
         epoch+=1
     return weights
-training_data = [ (array([0,0,1]), 0), (array([0,1,1]), 1), (array([1,0,1]), 1), (array([1,1,1]), 1),                (array([1,0,1]), 1)]
-
-print fit(training_data,.1,0.0001)
 
