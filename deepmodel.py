@@ -47,7 +47,7 @@ def initialize_parameters(layer_dims):
 
     for l in range(1, num_layers): 
         # Wi -- weight matrix (layer_dims[i], layer_dims[i-1])
-        parameters['W'+ str(l)] = np.random.randn(layer_dims[l],layer_dims[l-1])*0.01
+        parameters['W' + str(l)] = np.random.randn(layer_dims[l], layer_dims[l-1]) / np.sqrt(layer_dims[l-1]) 
         #bi -- bias vector (layer_dims[i], 1)
         parameters['b'+ str(l)] = np.zeros((layer_dims[l],1))
 
