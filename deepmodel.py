@@ -1,13 +1,10 @@
 import numpy as np
 import matplotlib.pyplot as plt
-from testCases_v2 import *
 import h5py
 import time
 import numpy as np
 import scipy
 from utils import *
-from PIL import Image
-from scipy import ndimage
 
 # calculates sigmoid of vector Z
 def sigmoid(Z):
@@ -215,7 +212,7 @@ def run_model(X, Y, layers_dims, learning_rate = 0.0075, num_iterations = 3000, 
             print ("Cost after iteration %i: %f" %(i, cost))
         if print_cost and i % 100 == 0:
             costs.append(cost)
-            
+        
     # plot the cost
     plt.plot(np.squeeze(costs))
     plt.ylabel('cost')
