@@ -3,7 +3,6 @@ N-layer neural network
 Input -> (N-1) layers [z_l/Relu] -> 1 layer [z_n/Sigmoid] -> Output
 where z_l = W_l*a_(l-1) + b_l for layer l
 """
-
 import numpy as np
 import matplotlib.pyplot as plt
 import h5py
