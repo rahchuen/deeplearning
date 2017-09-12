@@ -2,7 +2,7 @@
 N-layer neural network 
 Input -> (N-1) layers [z_l/Relu] -> 1 layer [z_N/Sigmoid] -> Output
 where z_l = W_l*a_(l-1) + b_l for layer l
-Loss function = cross entropy
+Cost function = cross entropy
 """
 import numpy as np
 import matplotlib.pyplot as plt
