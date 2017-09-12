@@ -1,3 +1,9 @@
+"""
+N-layer neural network 
+Input -> (N-1) layers [z_l/Relu] -> 1 layer [z_n/Sigmoid] -> Output
+where z_l = Wl*a(l-1) + bl for layer l
+"""
+
 import numpy as np
 import matplotlib.pyplot as plt
 import h5py
@@ -38,8 +44,7 @@ def compute_cost(AL, Y):
     cost = (-1.0/m)*(np.dot(Y,np.log(AL).T) + np.dot((1-Y),(np.log(1-AL).T)))
     return cost
 
-# initialize Weights Wi and Biases bi for all layers based on list containing dimensions of each \
-# layer l
+# initialize Weights Wi and Biases bi for all layers based on list containing dimensions of each layer l
 def initialize_parameters(layer_dims):
     np.random.seed()
     parameters = {}
@@ -144,11 +149,11 @@ def backward_propagation_model(AL, Y, caches):
     
     # back prop for Lth layer (SIGMOID -> LINEAR) gradients
     current_cache = caches[num_layers-1]
-    grads["dA" + str(num_layers)], grads["dW" + str(num_layers)], grads["db" + str(num_layers)] =        backward_propagation_single_layer(dAL, current_cache, activation = "sigmoid")
+    grads["dA" + str(num_layers)], grads["dW" + str(num_layers)], grads["db" + str(num_layers)] = \
+            backward_propagation_single_layer(dAL, current_cache, activation = "sigmoid")
     
     # back prop for (L-1)th to 1st layer: (RELU -> LINEAR) gradients.
-    for l in reversed(range(num_layers-1)):
-        #L-2,L-1,..1
+    for l in reversed(range(num_layers-1)): #L-2,L-1,..1
         current_cache = caches[l]
         dA_prev_temp, dW_temp, db_temp = backward_propagation_single_layer(grads["dA"+str(l+2)], current_cache, activation = "relu")
         grads["dA" + str(l + 1)] = dA_prev_temp
